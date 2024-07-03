@@ -23,8 +23,21 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensaje;
-    private LocalDateTime fechaCreacion = LocalDateTime.now();
+
+    @Column(name = "fecha")
+    private LocalDateTime fechaCreacion;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
     private String autor;
     private String curso;
+
+    public Topico(DatosRegistroTopico datosRegistroTopico) {
+        this.titulo = datosRegistroTopico.titulo();
+        this.mensaje = datosRegistroTopico.mensaje();
+        this.autor = datosRegistroTopico.autor();
+        this.curso = datosRegistroTopico.curso();
+        this.status = Status.valueOf("SIN_RESPUESTA");
+        this.fechaCreacion = LocalDateTime.now();
+    }
 }
