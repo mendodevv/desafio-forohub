@@ -40,4 +40,22 @@ public class Topico {
         this.status = Status.valueOf("SIN_RESPUESTA");
         this.fechaCreacion = LocalDateTime.now();
     }
+
+    public void actualizarTopico(DatosActualizarTopico datosRegistroTopico) {
+        if (datosRegistroTopico.titulo() != null) {
+            this.titulo = datosRegistroTopico.titulo();
+        }
+
+        if (datosRegistroTopico.mensaje() != null) {
+            this.mensaje = datosRegistroTopico.mensaje();
+        }
+
+        if (datosRegistroTopico.autor() != null) {
+            this.autor = datosRegistroTopico.autor();
+        }
+
+        if (datosRegistroTopico.curso() != null) {
+            this.curso = datosRegistroTopico.curso();
+        }
+    }
 }
