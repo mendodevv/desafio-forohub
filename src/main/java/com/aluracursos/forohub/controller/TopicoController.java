@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/topicos")
 public class TopicoController {
@@ -58,5 +60,17 @@ public class TopicoController {
         topico.actualizarTopico(datosActualizarTopico);
 
         return ResponseEntity.ok(new DatosRespuestaTopico(topico.getTitulo(), topico.getMensaje(), topico.getFechaCreacion(), topico.getStatus(), topico.getAutor(), topico.getCurso()));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity eliminarTopico(@PathVariable Long id) {
+        Optional<Topico> topico = topicoRepository.findById(id);
+        if (topico.isPresent()) {
+            topicoRepository.deleteById(id);
+            return ResponseEntity.ok().body("El tópico fue eliminado con éxito");
+        } else {
+            return  ResponseEntity.notFound().build();
+        }
     }
 }
