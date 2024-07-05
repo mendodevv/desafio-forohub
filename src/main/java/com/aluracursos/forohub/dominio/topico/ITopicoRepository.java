@@ -9,4 +9,6 @@ import java.util.Optional;
 
 public interface ITopicoRepository extends JpaRepository<Topico, Long>{
     Page<Topico> findAllByOrderByFechaCreacionDesc(Pageable paginacion);
+    Optional<Topico> findByTitulo(String titulo);
+    Optional<Topico> findByMensaje(String mensaje);
 }

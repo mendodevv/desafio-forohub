@@ -20,7 +20,17 @@ public class TopicoController {
     private ITopicoRepository topicoRepository;
 
     @PostMapping
-    public ResponseEntity<DatosRegistroTopico> registrarTopico(@RequestBody @Valid DatosRegistroTopico datosRegistroTopico) {
+    public ResponseEntity registrarTopico(@RequestBody @Valid DatosRegistroTopico datosRegistroTopico) {
+        Optional<Topico> topicoExistente = topicoRepository.findByTitulo(datosRegistroTopico.titulo());
+        if (topicoExistente.isPresent()) {
+            return ResponseEntity.badRequest().body("Ese título ya existe, ingresa otro por favor");
+        }
+
+        Optional<Topico> topicoExistentePorMensaje = topicoRepository.findByMensaje(datosRegistroTopico.mensaje());
+        if (topicoExistentePorMensaje.isPresent()) {
+            return ResponseEntity.badRequest().body("Ese mensaje ya existe, ingresa otro por favor");
+        }
+
         Topico topico = topicoRepository.save(new Topico(datosRegistroTopico));
         return ResponseEntity.ok(new DatosRegistroTopico(topico.getTitulo(), topico.getMensaje(), topico.getAutor(), topico.getCurso()));
     }
