@@ -94,7 +94,7 @@ En el `spring.datasource.url` debes colocar la url de tu base de datos. Lo de ha
 
 2. Ejecutar e interactuar con la la API
 
-Al hacer esto, las migraciones den la carpeta de recursos se aplicarán, y una vez iniciado todo, podrás hacer uso de la api a través de una aplicación como lo es Insomnia, o también hacer uso de la documentación y Swagger.
+Al ejecutar la API, las migraciones den la carpeta de recursos se aplicarán, y una vez iniciado todo, podrás hacer uso de la api a través de una aplicación como lo es Insomnia (Ejemplo de su uso mencionado en este mismo readme), o también hacer uso de la documentación y Swagger.
 
 ## Cómo utilizar la documentación de la API
 Para acceder a la documentación de la API y probar los endpoints disponibles, sigue estos pasos:
