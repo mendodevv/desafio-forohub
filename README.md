@@ -1,133 +1,339 @@
-# Desafío Forohub
-<img src="/readme-images/forohub-banner.png">
+# Forohub API
 
-Este proyecto, llamado "Desafío Forohub", fue realizado como parte de la formación en el programa Oracle Next Education (ONE). Es una API rest que nos permite crear, leer, actualizar y eliminar tópicos (Se aplican las operaciones CRUD). Tiene un sistema de autenticación que implementa las tecnologías de Spring Security y tokens JWT.
+API REST desarrollada con **Java 17 y Spring Boot** para la gestión de tópicos de un foro. El proyecto implementa operaciones CRUD, autenticación y autorización mediante **JWT y Spring Security**, persistencia de datos con **MySQL y Spring Data JPA**, migraciones con **Flyway** y documentación interactiva mediante **OpenAPI/Swagger**.
 
-## Descripción del proyecto
-Este proyecto utiliza Java y Spring Boot como tecnologías principales, con Maven para la gestión de dependencias. La arquitectura del proyecto sigue las mejores prácticas y patrones de diseño, organizándose en paquetes específicos para modelos, repositorios, servicios y configuraciones de seguridad.
+El proyecto fue desarrollado como parte de la formación **Oracle Next Education (ONE)**, con el objetivo de aplicar conocimientos de desarrollo backend, diseño de APIs REST, persistencia de datos y seguridad.
 
-Se implementa autenticación JWT para proteger las rutas y asegurar que solo los usuarios autorizados puedan acceder a ciertas funcionalidades. Además, se integra con Spring Security para una gestión de seguridad robusta y flexible.
+---
 
-La documentación de la API se realiza mediante SpringDoc, que proporciona una interfaz de usuario de Swagger para explorar y probar los endpoints de la API de manera interactiva.
+## Tecnologías
+
+### Backend
+
+* **Java 17**
+* **Spring Boot**
+* Spring Web
+* Spring Data JPA
+* Spring Security
+* Spring Validation
+
+### Base de datos
+
+* **MySQL**
+* **SQL**
+* Flyway Migration
+
+### Seguridad
+
+* **JWT**
+* Spring Security
+* Java JWT
+
+### Documentación y herramientas
+
+* **SpringDoc OpenAPI / Swagger**
+* Maven
+* Lombok
+* Git / GitHub
+* Insomnia
+
+### Pruebas
+
+* Spring Boot Test
+* Spring Security Test
+
+---
+
+## ¿Qué demuestra este proyecto?
+
+Este proyecto permitió aplicar de manera práctica conocimientos relacionados con el desarrollo de aplicaciones backend:
+
+* Diseño y desarrollo de **APIs REST**.
+* Manejo de **peticiones HTTP y respuestas JSON**.
+* Implementación de operaciones **CRUD**.
+* Autenticación y autorización mediante **JWT y Spring Security**.
+* Persistencia de información mediante **SQL, MySQL y Spring Data JPA**.
+* Migraciones de base de datos utilizando **Flyway**.
+* Validación de datos recibidos mediante la API.
+* Organización del código mediante separación de responsabilidades.
+* Documentación y exploración de endpoints mediante **OpenAPI/Swagger**.
+* Gestión de dependencias y ejecución del proyecto mediante **Maven**.
+* Control de versiones utilizando **Git y GitHub**.
+
+---
 
 ## Características principales
 
-- **Autenticación y Autorización:** Implementación de JWT y Spring Security para gestionar el acceso.
-- **CRUD de Tópicos:** Usuarios pueden crear, leer, actualizar y eliminar tópicos de discusión.
-- **Documentación de API:** Integración con SpringDoc para documentación automática y exploración de la API.
+### Autenticación y autorización
 
-## Organización del código
-El proyecto sigue la estructura estándar de Maven y se organiza en varios paquetes:
+La API cuenta con un sistema de autenticación basado en **JWT** y **Spring Security**.
 
-- `com.aluracursos.forohub.controller`: Controladores para manejar las solicitudes HTTP.
-- `com.aluracursos.forohub.dominio`: Contiene a nuestros objetos (Topico y usuario) y todo lo que se relacione con ellos, por ejemplo en el caso del tópico, su clase, repositorio, DTOS, etc...
-- `com.aluracursos.forohub.infra.security`: Configuraciones de seguridad, autenticación, manejo de errores y configuración de springdoc.
+El usuario puede iniciar sesión para obtener un token que posteriormente puede utilizarse para acceder a los endpoints protegidos.
 
-Asimismo, contamos con:
+### Gestión de tópicos
 
-- Las dependencias necesarias:
-  - Lombok
-  - Spring Web
-  - Spring Boot DevTools
-  - Spring Data JPA
-  - Flyway Migration
-  - MySQL Driver
-  - Validation
-  - Spring Security
-  - Java JWT
-  - Springdoc
+La aplicación permite realizar las principales operaciones sobre los tópicos del foro:
 
- - La declaración y configuración de la base de datos en el archivo `application.properties`
+* Crear tópicos.
+* Consultar tópicos.
+* Consultar un tópico específico.
+* Actualizar tópicos.
+* Eliminar tópicos.
 
-## Organización del código de manera gráfica
-<img src="/readme-images/FOROHUB-DIAGRAM.png">
+### Persistencia de datos
 
-## Demostración de la aplicación
-### Demostración con Insomnia
-<table>
-  <tr>
-    <td>
-      <p>Crear un tópico</p>
-      <img src="readme-images/crear-topico.png" alt="Crear un tópico" width="400"/>
-    </td>
-    <td>
-      <p>Obtener la lista de todos los tópicos</p>
-      <img src="readme-images/obtener-topicos.png" alt="Obtener los tópicos" width="400"/>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Obtener un tópico individual por id</p>
-      <img src="readme-images/obtener-topico.png" alt="Obtener un tópico" width="400"/>
-    </td>
-    <td>
-      <p>Actualizar un tópico ya creado por id</p>
-      <img src="readme-images/actualizar-topico.png" alt="Actualizar un tópico" width="400"/>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p>Eliminar un tópico por id</p>
-      <img src="readme-images/eliminar-topico.png" alt="Eliminar un tópico" width="400"/>
-    </td>
-    <td>
-      <p>Inicio de sesión para obtener un token y usar los endpoints</p>
-      <img src="readme-images/login.png" alt="Inicio de sesión" width="400"/>
-    </td>
-</table>
+La información es almacenada en una base de datos **MySQL** utilizando **Spring Data JPA**.
 
-## Como usar la aplicación
-**Clonar el repositorio**
+Las modificaciones y creación de estructuras de la base de datos son administradas mediante **Flyway Migration**.
 
-Para empezar, necesitas clonar el repositorio en tu máquina local. Puedes hacerlo utilizando el siguiente comando en tu terminal:
-   `git clone https://github.com/mendodevv/desafio-forohub.git`
-   
-O si lo prefieres, puedes presionar el botón verde `code<>` del repositorio y descargar los archivos como ZIP
+### Documentación de la API
 
-1. Configurar la base de datos
+La API cuenta con documentación interactiva mediante **SpringDoc OpenAPI**, permitiendo consultar los endpoints disponibles y realizar solicitudes directamente desde Swagger UI.
 
-La aplicación utiliza una base de datos MySQL. Deberás crear una base de datos local y configurar las credenciales de la base de datos en el archivo src/main/java/resources/application.properties. Reemplaza ${DATASOURCE_USERNAME}, ${DB_PASSWORD} y ${JWT_SECRET:123456} con tus propios valores (Puede ser en el mismo archivo properties, o creando tus propias variables de entorno).
-- DB_NAME_LITERALURA: el nombre de tu base de datos.
-- DATASOURCE_USERNAME: el nombre del usuario de la base datos.
-- DB_PASSWORD: la contraseña que pusiste para MySQL.
-En el `spring.datasource.url` debes colocar la url de tu base de datos. Lo de hasta el final es el nombre, el cuál deberás reemplazar por el nombre que le hayas puesto a la tuya.
+---
 
-2. Ejecutar e interactuar con la la API
+## Arquitectura
 
-Al ejecutar la API, las migraciones den la carpeta de recursos se aplicarán, y una vez iniciado todo, podrás hacer uso de la api a través de una aplicación como lo es Insomnia (Ejemplo de su uso mencionado en este mismo readme), o también hacer uso de la documentación y Swagger.
+El proyecto sigue una estructura organizada por responsabilidades, separando los componentes principales de la aplicación.
 
-## Cómo utilizar la documentación de la API
-Para acceder a la documentación de la API y probar los endpoints disponibles, sigue estos pasos:
+```text
+Cliente
+   │
+   │ HTTP / JSON
+   ▼
+Controller
+   │
+   ▼
+Domain / Business Logic
+   │
+   ▼
+Repository
+   │
+   ▼
+MySQL
+```
 
-1. Inicia la aplicación.
-2. Navega a `http://localhost:8080/swagger-ui.html` en tu navegador.
-3. Explora los diferentes endpoints disponibles, sus parámetros y respuestas.
-4. Utiliza el botón "Try it out" para realizar solicitudes de prueba directamente desde la interfaz de Swagger.
+La seguridad se integra mediante Spring Security y JWT para proteger los recursos que requieren autenticación.
 
-## Tecnologías utilizadas
-- **Java SE17**
-- **Spring Boot**
-- **Maven**
-- **SQL y MySQL**
-- **Spring Data JPA**
-- **Spring Security**
-- **Spring Validation**
-- **Spring Web**
-- **Flyway**
-- **Lombok**
-- **Spring Boot DevTools**
-- **Spring Boot Test**
-- **Spring Security Test**
-- **Java JWT**
-- **SpringDoc OpenAPI**
+```text
+Cliente
+   │
+   │ Credenciales
+   ▼
+Login
+   │
+   ▼
+JWT
+   │
+   │ Authorization: Bearer <token>
+   ▼
+Spring Security
+   │
+   ▼
+Endpoint protegido
+```
+
+Esta separación permite mantener responsabilidades independientes y facilita el mantenimiento y evolución del proyecto.
+
+---
+
+## Principales endpoints
+
+La API proporciona endpoints para autenticación y gestión de tópicos.
+
+| Método   | Endpoint        | Descripción                                |
+| -------- | --------------- | ------------------------------------------ |
+| `POST`   | `/login`        | Autentica un usuario y genera un token JWT |
+| `POST`   | `/topicos`      | Crea un nuevo tópico                       |
+| `GET`    | `/topicos`      | Obtiene los tópicos registrados            |
+| `GET`    | `/topicos/{id}` | Obtiene un tópico específico               |
+| `PUT`    | `/topicos/{id}` | Actualiza un tópico                        |
+| `DELETE` | `/topicos/{id}` | Elimina un tópico                          |
+
+> Los endpoints que requieren autenticación deben recibir el token JWT correspondiente.
+
+---
+
+## Demostración
+
+### Documentación con Swagger / OpenAPI
+
+La API puede explorarse y probarse mediante Swagger UI.
+
+Desde esta interfaz es posible:
+
+* Consultar los endpoints disponibles.
+* Revisar parámetros y respuestas.
+* Autenticarse.
+* Enviar solicitudes HTTP.
+* Probar los diferentes recursos de la API.
+
+### Pruebas con Insomnia
+
+Durante el desarrollo se realizaron pruebas de los diferentes endpoints utilizando Insomnia, incluyendo:
+
+* Inicio de sesión.
+* Obtención del token JWT.
+* Creación de tópicos.
+* Consulta de tópicos.
+* Consulta individual por ID.
+* Actualización de tópicos.
+* Eliminación de tópicos.
+
+## Crear un tópico
+![Crear un tópico](readme-images/crear-topico.png)
+
+## Obtener tópico
+![Obtener tópicos](readme-images/obtener-topicos.png)
+
+## Obtener tópico por ID
+![Obtener tópico por ID](readme-images/obtener-topico.png)
+
+## Actualizar tópico
+![Actualizar tópico](readme-images/actualizar-topico.png)
+
+## Eliminar tópico
+![Eliminar tópico](readme-images/eliminar-topico.png)
+
+## Inicio de sesión
+![Inicio de sesión](readme-images/login.png)
+
+## Instalación y ejecución
+
+### Requisitos
+
+Antes de ejecutar el proyecto necesitas tener instalado:
+
+* **Java 17 o superior**
+* **MySQL**
+* Git
+
+No es necesario instalar Maven por separado, ya que el proyecto incluye el **Maven Wrapper**.
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/mendodevv/desafio-forohub.git
+cd desafio-forohub
+```
+
+### 2. Configurar MySQL
+
+Crea una base de datos en MySQL y configura las credenciales necesarias para la aplicación.
+
+En el archivo:
+
+```text
+src/main/resources/application.properties
+```
+
+configura los valores correspondientes a tu entorno.
+
+Por ejemplo:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/tu_base_de_datos
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_contraseña
+```
+
+También debes configurar una clave para la generación de tokens JWT:
+
+```properties
+api.security.secret=${JWT_SECRET}
+```
+
+> No se recomienda subir credenciales, contraseñas o claves secretas al repositorio. Para entornos reales, utiliza variables de entorno.
+
+### 3. Ejecutar la aplicación
+
+En Windows:
+
+```bash
+mvnw.cmd spring-boot:run
+```
+
+En Linux/macOS:
+
+```bash
+./mvnw spring-boot:run
+```
+
+Al iniciar la aplicación, las migraciones configuradas mediante **Flyway** serán ejecutadas automáticamente.
+
+---
+
+## Acceder a Swagger
+
+Una vez iniciada la aplicación, abre:
+
+```text
+http://localhost:8080/swagger-ui.html
+```
+
+Desde Swagger UI puedes explorar y probar los endpoints disponibles utilizando el botón **Try it out**.
+
+---
+
+## Estructura del proyecto
+
+La estructura principal del código se encuentra organizada de la siguiente manera:
+
+```text
+src/
+└── main/
+    ├── java/
+    │   └── com/aluracursos/forohub/
+    │       ├── controller/
+    │       ├── dominio/
+    │       └── infra/
+    │           └── security/
+    │
+    └── resources/
+        ├── db/
+        │   └── migration/
+        └── application.properties
+```
+
+### Principales responsabilidades
+
+**`controller`**
+
+Contiene los controladores encargados de recibir y procesar las solicitudes HTTP.
+
+**`dominio`**
+
+Contiene las entidades, DTOs y componentes relacionados con la lógica y persistencia de los recursos principales de la aplicación.
+
+**`infra/security`**
+
+Contiene la configuración relacionada con seguridad, autenticación, autorización y JWT.
+
+**`db/migration`**
+
+Contiene las migraciones utilizadas por Flyway para administrar la estructura de la base de datos.
+
+
 
 ## Estado del proyecto
 
-Finalizado.
+**Finalizado.**
 
-## Licensias
+El proyecto cumple con las funcionalidades principales planteadas para el desafío y cuenta con autenticación, operaciones CRUD, persistencia de datos y documentación de la API.
 
-MIT License.
+
+
+## Licencia
+
+Este proyecto está disponible bajo la licencia **MIT**.
+
+
+## Autor
+
+**mendodevv**
+
+[GitHub](https://github.com/mendodevv)
+
 
 
 
