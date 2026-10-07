@@ -4,7 +4,7 @@ API REST desarrollada con **Java 17 y Spring Boot** para la gestión de tópicos
 
 El proyecto fue desarrollado como parte de la formación **Oracle Next Education (ONE)**, con el objetivo de aplicar conocimientos de desarrollo backend, diseño de APIs REST, persistencia de datos y seguridad.
 
----
+
 
 ## Tecnologías
 
@@ -42,7 +42,7 @@ El proyecto fue desarrollado como parte de la formación **Oracle Next Education
 * Spring Boot Test
 * Spring Security Test
 
----
+
 
 ## ¿Qué demuestra este proyecto?
 
@@ -60,7 +60,7 @@ Este proyecto permitió aplicar de manera práctica conocimientos relacionados c
 * Gestión de dependencias y ejecución del proyecto mediante **Maven**.
 * Control de versiones utilizando **Git y GitHub**.
 
----
+
 
 ## Características principales
 
@@ -90,7 +90,7 @@ Las modificaciones y creación de estructuras de la base de datos son administra
 
 La API cuenta con documentación interactiva mediante **SpringDoc OpenAPI**, permitiendo consultar los endpoints disponibles y realizar solicitudes directamente desde Swagger UI.
 
----
+
 
 ## Arquitectura
 
@@ -152,7 +152,7 @@ La API proporciona endpoints para autenticación y gestión de tópicos.
 
 > Los endpoints que requieren autenticación deben recibir el token JWT correspondiente.
 
----
+
 
 ## Demostración
 
